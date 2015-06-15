@@ -410,6 +410,7 @@ wanteds = concat
           ,closureField  C    "StgTSO"      "bq"
           ,closureField  C    "StgTSO"      "tls_max"
           ,closureField  C    "StgTSO"      "tls_slots"
+          ,closureFieldOffset C "StgTSO" "tls_slots"
           ,closureField_ Both "StgTSO_cccs" "StgTSO" "prof.cccs"
           ,closureField  Both "StgTSO"      "stackobj"
 

@@ -436,14 +436,38 @@ stg_getTLSzh ( W_ key)
 {
   W_ res;
 
-//  if (WDS(key) >= StgTSO_tls_max(CurrentTSO)) {
+//  if (key >= StgTSO_tls_max(CurrentTSO)) {
   res = W_[tls_default_slots + WDS(key)];
 //  } else {
-//      res = W_[CurrentTSO + TSO_OFFSET_StgTSO_tls_slots + WDS(key)];
+//  res = W_[CurrentTSO + OFFSET_StgTSO_tls_slots + WDS(key)];
 //  }
 
   return(res);
 }
+
+
+stg_setTLSzh
+{
+  MAYBE_GC_P(stg_setTLSzh, R2);
+
+  W_ key;
+  gcptr closure;
+
+  key = R1;
+  closure = R2;
+
+//  if (key >= StgTSO_tls_max(CurrentTSO)) {
+//      ccall expandTLSHelper(CurrentTSO "ptr");
+//  }
+
+//  W_[CurrentTSO + OFFSET_StgTSO_tls_slots + WDS(key)] = closure;
+
+  W_[tls_default_slots + WDS(key)] = closure;
+
+  jump %ENTRY_CODE(Sp(0)) [];
+}
+  
+
 
 /* -----------------------------------------------------------------------------
    Weak Pointer Primitives

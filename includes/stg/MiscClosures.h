@@ -394,6 +394,7 @@ RTS_FUN_DECL(stg_threadStatuszh);
 RTS_FUN_DECL(stg_newSContzh);
 RTS_FUN_DECL(stg_newTLSKeyzh);
 RTS_FUN_DECL(stg_getTLSzh);
+RTS_FUN_DECL(stg_setTLSzh);
 RTS_FUN_DECL(stg_mkWeakzh);
 RTS_FUN_DECL(stg_mkWeakNoFinalizzerzh);
 RTS_FUN_DECL(stg_mkWeakForeignzh);
