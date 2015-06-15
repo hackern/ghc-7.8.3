@@ -191,7 +191,7 @@ stg_newArrayzh ( W_ n /* words */, gcptr init )
         W_[p] = init;
         p = p + WDS(1);
         goto for;
-    }
+    } 
     // Initialise the mark bits with 0
   for2:
     if (p < arr + WDS(size)) {
@@ -430,6 +430,19 @@ stg_newTLSKeyzh ( gcptr closure )
   W_ key;
   (key) = ccall newTLSKeyHelper(closure "ptr");
   return(key);
+}
+
+stg_getTLSzh ( W_ key)
+{
+  W_ res;
+
+//  if (WDS(key) >= StgTSO_tls_max(CurrentTSO)) {
+  res = W_[tls_default_slots + WDS(key)];
+//  } else {
+//      res = W_[CurrentTSO + TSO_OFFSET_StgTSO_tls_slots + WDS(key)];
+//  }
+
+  return(res);
 }
 
 /* -----------------------------------------------------------------------------

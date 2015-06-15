@@ -1985,6 +1985,11 @@ primop  NewTLSKeyOp "newTLSKey#" GenPrimOp
    has_side_effects = True
    out_of_line      = True
 
+
+primop  GetTLSOp "getTLS#" GenPrimOp
+   Int# -> State# RealWorld -> (# State# RealWorld, a #)
+   with out_of_line = True
+		  
 ------------------------------------------------------------------------
 section "Weak pointers"
 ------------------------------------------------------------------------
