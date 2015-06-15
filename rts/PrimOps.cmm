@@ -424,6 +424,14 @@ stg_newSContzh ( gcptr closure )
   return(tso);
 }
 
+stg_newTLSKeyzh ( gcptr closure )
+{
+  MAYBE_GC_P(stg_newTLSKeyzh, closure);
+  W_ key;
+  (key) = ccall newTLSKeyHelper(closure "ptr");
+  return(key);
+}
+
 /* -----------------------------------------------------------------------------
    Weak Pointer Primitives
    -------------------------------------------------------------------------- */

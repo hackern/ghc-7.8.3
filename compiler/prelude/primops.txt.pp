@@ -1979,6 +1979,12 @@ primop  NewSContOp "newSCont#" GenPrimOp
    has_side_effects = True
    out_of_line      = True
 
+primop  NewTLSKeyOp "newTLSKey#" GenPrimOp
+   a -> State# RealWorld -> (# State# RealWorld, Int# #)
+   with
+   has_side_effects = True
+   out_of_line      = True
+
 ------------------------------------------------------------------------
 section "Weak pointers"
 ------------------------------------------------------------------------

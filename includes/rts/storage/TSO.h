@@ -155,6 +155,9 @@ typedef struct StgTSO_ {
     StgWord32 saved_winerror;
 #endif
 
+    StgWord32          tls_max;
+    StgClosure*        tls_slots[MAX_TLS_SLOTS];
+  
     /*
      * sum of the sizes of all stack chunks (in words), used to decide
      * whether to throw the StackOverflow exception when the stack

@@ -294,4 +294,6 @@
 
 #define MAX_SPARE_WORKERS 6
 
+#define MAX_TLS_SLOTS 256
+
 #endif /* RTS_CONSTANTS_H */

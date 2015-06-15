@@ -408,6 +408,8 @@ wanteds = concat
           ,closureField  C    "StgTSO"      "flags"
           ,closureField  C    "StgTSO"      "dirty"
           ,closureField  C    "StgTSO"      "bq"
+          ,closureField  C    "StgTSO"      "tls_max"
+          ,closureField  C    "StgTSO"      "tls_slots"
           ,closureField_ Both "StgTSO_cccs" "StgTSO" "prof.cccs"
           ,closureField  Both "StgTSO"      "stackobj"
 
@@ -415,7 +417,7 @@ wanteds = concat
           ,closureFieldOffset Both "StgStack" "stack"
           ,closureField       C    "StgStack" "stack_size"
           ,closureField       C    "StgStack" "dirty"
-
+           
           ,structSize C "StgTSOProfInfo"
 
           ,closureField Both "StgUpdateFrame" "updatee"
