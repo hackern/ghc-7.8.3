@@ -1973,6 +1973,13 @@ primop  ThreadStatusOp "threadStatus#" GenPrimOp
 ------------------------------------------------------------------------
 section "Lightweight concurrency"
 ------------------------------------------------------------------------
+
+primop  SwitchOp "switch#" GenPrimOp
+   ThreadId# -> State# RealWorld -> State# RealWorld
+   with
+   has_side_effects = True
+   out_of_line = True
+
 primop  NewSContOp "newSCont#" GenPrimOp
    a -> State# RealWorld -> (# State# RealWorld, ThreadId# #)
    with
@@ -1984,7 +1991,6 @@ primop  NewTLSKeyOp "newTLSKey#" GenPrimOp
    with
    has_side_effects = True
    out_of_line      = True
-
 
 primop  GetTLSOp "getTLS#" GenPrimOp
    Int# -> State# RealWorld -> (# State# RealWorld, a #)

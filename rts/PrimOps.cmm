@@ -466,7 +466,35 @@ stg_setTLSzh
 
   jump %ENTRY_CODE(Sp(0)) [];
 }
-  
+
+stg_switchzh
+{
+  /* R1: TSO */
+  gcptr tso;
+
+  /* find target stack */
+  tso = R1;
+while:
+  if (StgTSO_what_next(tso) == ThreadRelocated :: I16) {
+    tso = StgTSO__link(tso);
+    goto while;
+  }
+
+  ASSERT(tso != 0);
+
+  if (CurrentTSO != tso) {
+
+    SAVE_THREAD_STATE();
+    StgTSO_flags(tso) = StgTSO_flags(tso) | TSO_DIRTY :: I32;
+    CurrentTSO = tso;
+    LOAD_THREAD_STATE();
+  }
+
+  CHECK_SENSIBLE_REGS();
+
+  jump %ENTRY_CODE(Sp(0)) [];
+}
+
 
 
 /* -----------------------------------------------------------------------------

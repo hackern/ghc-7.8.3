@@ -8,6 +8,7 @@ libraries/binary             -           -                               https:/
 libraries/bytestring         -           -                               https://github.com/haskell/bytestring.git
 libraries/Cabal              -           -                               https://github.com/haskell/cabal.git
 libraries/containers         -           -                               https://github.com/haskell/containers.git
+libraries/heap               -           -                               https://github.com/igel2/heap.git
 libraries/deepseq            -           packages/deepseq.git            -
 libraries/directory          -           packages/directory.git          -
 libraries/filepath           -           packages/filepath.git           -
@@ -21,7 +22,7 @@ libraries/integer-gmp        -           packages/integer-gmp.git        -
 libraries/integer-simple     -           packages/integer-simple.git     -
 libraries/old-locale         -           packages/old-locale.git         -
 libraries/old-time           -           packages/old-time.git           -
-libraries/pretty             -           -                               https://github.com/haskell/pretty.git
+libraries/pretty             -           -                               ahttps://github.com/haskell/pretty.git
 libraries/process            -           packages/process.git            -
 libraries/template-haskell   -           packages/template-haskell.git   -
 libraries/terminfo           -           -                               https://github.com/judah/terminfo.git

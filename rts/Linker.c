@@ -1164,6 +1164,7 @@ typedef struct _RtsSymbolVal {
       SymI_HasProto(stg_newTLSKeyzh)					\
       SymI_HasProto(stg_getTLSzh)					\
       SymI_HasProto(stg_setTLSzh)					\
+      SymI_HasProto(stg_switchzh)					\
       SymI_HasProto(stg_labelThreadzh)					\
       SymI_HasProto(stg_newArrayzh)                                     \
       SymI_HasProto(stg_newArrayArrayzh)                                \

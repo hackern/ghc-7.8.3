@@ -195,7 +195,7 @@
 #define ThreadInterpret 2       /* interpret this thread */
 #define ThreadKilled    3       /* thread has died, don't run it */
 #define ThreadComplete  4       /* thread has finished */
-
+#define ThreadRelocated 5
 /*
  * Constants for the why_blocked field of a TSO
  * NB. keep these in sync with GHC/Conc.lhs: threadStatus
@@ -244,7 +244,19 @@
 
 /*
  * Flags for the tso->flags field.
+ *
+ * The TSO_DIRTY flag indicates that this TSO's stack should be
+ * scanned during garbage collection.  The link field of a TSO is
+ * always scanned, so we don't have to dirty a TSO just for linking
+  * it on a different list.
+   *
+   * TSO_DIRTY is set by
+  *    - schedule(), just before running a thread,
+   *    - raiseAsync(), because it modifies a thread's stack
+ *    - resumeThread(), just before running the thread again
+ * and unset by the garbage collector (only).
  */
+#define TSO_DIRTY   1
 
 /*
  * TSO_LOCKED is set when a TSO is locked to a particular Capability.
