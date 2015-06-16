@@ -384,6 +384,7 @@ else
 # compiler already has installed (or up-to-date enough).
 
 PACKAGES_STAGE0 = Cabal/Cabal hpc bin-package-db hoopl transformers
+PACKAGES_STAGE0 += random
 ifeq "$(Windows_Host)" "NO"
 ifneq "$(HostOS_CPP)" "ios"
 PACKAGES_STAGE0 += terminfo
@@ -407,6 +408,7 @@ PACKAGES_STAGE1 += time
 ifeq "$(Windows_Host)" "NO"
 PACKAGES_STAGE1 += unix
 endif
+
 
 PACKAGES_STAGE1 += directory
 PACKAGES_STAGE1 += process
@@ -1110,7 +1112,7 @@ define sdist_ghc_file
 endef
 
 # Extra packages which shouldn't be in the source distribution: see #8801
-EXTRA_PACKAGES=parallel stm random primitive vector dph
+EXTRA_PACKAGES=parallel stm primitive vector dph
 
 .PHONY: sdist-ghc-prep
 sdist-ghc-prep :
