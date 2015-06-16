@@ -8,7 +8,6 @@ libraries/binary             -           -                               https:/
 libraries/bytestring         -           -                               https://github.com/haskell/bytestring.git
 libraries/Cabal              -           -                               https://github.com/haskell/cabal.git
 libraries/containers         -           -                               https://github.com/haskell/containers.git
-libraries/heap               -           -                               https://github.com/igel2/heap.git
 libraries/deepseq            -           packages/deepseq.git            -
 libraries/directory          -           packages/directory.git          -
 libraries/filepath           -           packages/filepath.git           -
